@@ -29,6 +29,7 @@
             <select name="operacao">
                 <option value="jurosSimples">Juros</option>
                 <option value="capital">Capital</option>
+                <option value="taxa">Taxa</option>
             </select>
             
         </p>
@@ -59,6 +60,14 @@
             if ($op == 'capital') {
                 $capital = capital($j, $i, $n);
                 echo "<h2 style='text-align: center;'>O valor do capital é: R$ " . capital($j, $i, $n) . "</h2>";
+            }
+
+            function taxa($juros, $capital, $prazo) {
+                return ($juros/ ($capital * $prazo) * 100);
+            }
+            if ($op == 'taxa') {
+                $taxa = taxa($j, $c, $n);
+                echo "<h2 style='text-align: center;'>O valor da taxa é: " . taxa($j, $c, $n) . "%</h2>";
             }
         }
     }
